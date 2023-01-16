@@ -1,0 +1,21 @@
+{
+  "name": "nina-todo-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/home/home.service.js",
+  "scripts": {
+    "build:css": "tailwindcss build src/css/style.css -o dist/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/synergysuite/nina-todo-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/synergysuite/nina-todo-app#readme",
+  "dependencies": {
+    "bootstrap-icons": "^1.8.3",
+    "json-server": "^0.17.1"
+  },
+  "devDependencies": {}
+}

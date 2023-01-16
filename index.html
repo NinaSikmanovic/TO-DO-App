@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="toDoApp">
+<head>
+    <meta charset="utf-8">
+    <title> ToDo App</title>
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
+    <script src="app/app.module.js"></script>
+    <script src="app/app.config.js"></script>
+    <script src="app/home/home.controller.js"></script>
+    <script src="app/home/home.service.js"></script>
+    <script src="app/task-detail/task-detail.controller.js"></script>
+    <script src="app/task-detail/task-detail.service.js"></script>
+    <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+
+<body class="bg-red-50 h-screen">
+<ng-view></ng-view>
+</body>
+</html>
+

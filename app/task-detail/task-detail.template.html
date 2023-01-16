@@ -1,0 +1,15 @@
+<div ng-controller="TaskDetailController as vm" class="flex align-center justify-center">
+    <div class="bg-gray-100 mt-5 p-5 rounded-xl shadow-lg text-gray-700">
+        <input checked id="red-checkbox" type="checkbox" value="" ng-model="vm.task.done"
+               class="check h-4 bg-gray-100 rounded border-gray-300 ">
+        <span ng-class="vm.task.done">{{vm.task.title | uppercase}}</span>
+        <button ng-click="vm.deleteTask(vm.task.id)"><i class="fa fa-times fa-lg" aria-hidden="true"></i>
+        </button>
+        <button ng-click="vm.addToFavorites(vm.task)"><i class="fa fa-heart fa-lg"
+                                                                                  aria-hidden="true"></i></button>
+    </div>
+    <div class="bg-gray-100 mt-5 p-5 rounded-xl shadow-lg text-gray-700 ml-5">
+        <a href="#/home">all tasks</a>
+    </div>
+</div>
+

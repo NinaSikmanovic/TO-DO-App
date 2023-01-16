@@ -1,0 +1,50 @@
+<div ng-controller="HomeController as vm" class="flex justify-evenly main-container" id="app" ng-cloak>
+    <div>
+        <div class="text-3xl text-center font-bold mb-3 uppercase">Todo List:</div>
+        <div class="flex">
+            <form class="flex justify-center" name="taskForm">
+                <input name="taskInput" type="text" ng-model="vm.newTask" placeholder="Enter Todo"
+                       class="text-xl text-orange-800 placeholder-orange-400 py-2 px-5 bg-orange-100 rounded-l-full outline-orange-300"
+                       required>
+                <button ng-click="vm.addTask()" ng-disabled="taskForm.taskInput.$invalid"
+                        class="text-xl text-orange-100 placeholder-orange-400 py-2 pr-5 pl-4 bg-orange-500 rounded-r-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                         stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+        <div class="bg-gray-100 mt-5 p-5 rounded-xl shadow-lg text-gray-700">
+            <ul class="px-2" ng-if="vm.tasks.length > 0">
+                <li ng-repeat="task in vm.tasks track by $index" class="text-gray-900 flex justify-between">
+                    <input id="red-checkbox" type="checkbox" ng-model="task.isChecked" ng-click="vm.doneTask(task)"
+                           class="check h-4 bg-gray-100 rounded border-gray-300">
+                    <a href="#!/home/{{task.id}}" ng-class="task.isChecked">{{task.title | uppercase}}</a>
+
+                    <div>
+                        <button ng-click="vm.deleteTask(task.id)"><i class="fa fa-times fa-lg" aria-hidden="true"></i>
+                        </button>
+                        <button ng-click="vm.addToFavorites(task)">
+                            <i class="fa fa-heart fa-lg" aria-hidden="true"></i></button>
+                    </div>
+                </li>
+            </ul>
+            <span ng-if="vm.tasks.length < 1">No tasks</span>
+        </div>
+    </div>
+
+    <div>
+        <div class="text-3xl text-center font-bold mb-3 uppercase pl-5">favorites:</div>
+        <ul class="px-2 bg-gray-100 p-5 shadow-lg text-gray-700 m-top text-center list-disc rounded-xl">
+            <li ng-repeat="task in vm.favoriteTasks" class="text-gray-900 flex justify-between"
+                ng-if="vm.favoriteTasks.length > 0">
+                <a href="#!/home/{{task.id}}" ng-class="task.done">{{task.title | uppercase}}</a>
+                <button ng-click="vm.removeFromFavorites(task)">
+                    <i class="fa fa-minus fa-lg" aria-hidden="true"></i></button>
+            </li>
+            <span ng-if="vm.favoriteTasks.length < 1">No favorite tasks</span>
+        </ul>
+    </div>
+</div>
+
